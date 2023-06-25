@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +16,19 @@
         android:theme="@style/Theme.AutoSilentApp"
         tools:targetApi="31">
         <activity
+            android:name=".CreateSessionActivity"
+            android:exported="false" />
+
+        <receiver
+            android:name=".SessionBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.autosilentapp.START_SILENT_MODE" />
+                <action android:name="com.example.autosilentapp.END_SILENT_MODE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -22,15 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver
-            android:name=".SilentModeReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="START_SILENT_MODE" />
-                <action android:name="END_SILENT_MODE" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

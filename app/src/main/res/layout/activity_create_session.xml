@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".CreateSessionActivity">-->
+
+<!--    <Button-->
+<!--        android:id="@+id/end_time"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="48dp"-->
+<!--        android:text="Button"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/start_time"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="44dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="Button"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/end_time"-->
+<!--        app:layout_constraintHorizontal_bias="0.152"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/checkbox1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:text="CheckBox"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/checkBox2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="CheckBox"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/checkbox1" />-->
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/checkBox3"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:text="CheckBox"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />-->
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/checkBox4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="CheckBox"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/checkBox3" />-->
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/checkBox5"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:text="CheckBox"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/checkBox4" />-->
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/checkBox6"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="44dp"-->
+<!--        android:text="CheckBox"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/checkBox5" />-->
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/checkBox7"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="CheckBox"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/checkBox6" />-->
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/checkBox8"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="CheckBox"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/checkBox7" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:text="Button"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/checkBox4"-->
+<!--        app:layout_constraintHorizontal_bias="0.484"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CreateSessionActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/fragment_createalarm_scheduleAlarmHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set Alarm Time"
+            android:textColor="@color/textColor"
+            android:textSize="21sp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/fragment_createalarm_timePickerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_scheduleAlarmHeading">
+
+           <Button
+               android:id="@+id/start_time_button"
+               android:layout_marginStart="20dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Start Time"/>
+            <Button
+                android:layout_marginStart="140dp"
+                android:id="@+id/end_time_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="End Time"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/fragment_createalarm_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Alarm Title"
+            android:textColorHint="@color/colorAccent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_timePickerLayout" />
+
+        <CheckBox
+            android:id="@+id/fragment_createalarm_recurring"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Recurring Alarm"
+            android:textColor="@color/textColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_title" />
+
+        <HorizontalScrollView
+            android:id="@+id/fragment_createalarm_recurring_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_recurring">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ToggleButton
+                    android:id="@+id/fragment_createalarm_checkMon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:textOff="Mon"
+                    android:textOn="Mon"
+                    android:layout_margin="3dp"
+                    style="@style/toggleButton"
+                    android:background="@drawable/toggle_bg"/>
+
+                <ToggleButton
+                    android:id="@+id/fragment_createalarm_checkTue"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:textOff="Tue"
+                    android:textOn="Tue"
+                    android:layout_margin="3dp"
+                    style="@style/toggleButton"
+                    android:background="@drawable/toggle_bg" />
+
+                <ToggleButton
+                    android:id="@+id/fragment_createalarm_checkWed"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:textOff="Wed"
+                    android:textOn="Wed"
+                    android:layout_margin="3dp"
+                    style="@style/toggleButton"
+                    android:background="@drawable/toggle_bg" />
+
+                <ToggleButton
+                    android:id="@+id/fragment_createalarm_checkThu"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:textOff="Thu"
+                    android:textOn="Thu"
+                    android:layout_margin="3dp"
+                    style="@style/toggleButton"
+                    android:background="@drawable/toggle_bg"/>
+
+                <ToggleButton
+                    android:id="@+id/fragment_createalarm_checkFri"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:textOff="Fri"
+                    android:textOn="Fri"
+                    android:layout_margin="3dp"
+                    style="@style/toggleButton"
+                    android:background="@drawable/toggle_bg" />
+
+                <ToggleButton
+                    android:id="@+id/fragment_createalarm_checkSat"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:textOff="Sat"
+                    android:textOn="Sat"
+                    android:layout_margin="3dp"
+                    style="@style/toggleButton"
+                    android:background="@drawable/toggle_bg"/>
+
+                <ToggleButton
+                    android:id="@+id/fragment_createalarm_checkSun"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:textOff="Sun"
+                    android:textOn="Sun"
+                    android:layout_margin="3dp"
+                    style="@style/toggleButton"
+                    android:background="@drawable/toggle_bg"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/fragment_createalarm_scheduleAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/shape_oval_filled"
+            android:fontFamily="monospace"
+            android:text="Schedule Alarm"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_recurring"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
