@@ -11,9 +11,12 @@ import android.widget.CompoundButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.autosilentapp.adapter.SessionRecyclerViewAdapter;
 import com.example.autosilentapp.database.Session;
 import com.example.autosilentapp.databinding.ActivityCreateSessionBinding;
 import com.example.autosilentapp.viewmodel.CreateSessionViewModel;
+
+import java.util.Random;
 
 public class CreateSessionActivity extends AppCompatActivity {
 
@@ -27,6 +30,7 @@ public class CreateSessionActivity extends AppCompatActivity {
 
     private ActivityCreateSessionBinding binding;
     CreateSessionViewModel createSessionViewModel;
+    SessionRecyclerViewAdapter sessionRecyclerViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,7 +169,9 @@ public class CreateSessionActivity extends AppCompatActivity {
 
     }
     private void scheduleSession() {
+        int sessionId = new Random().nextInt(1000);
         Session session =new Session();
+        session.setSessionId(sessionId);
         session.setStartHour(startHour);
         session.setStartMinute(startMinute);
         session.setEndHour(endHour);
@@ -188,7 +194,7 @@ public class CreateSessionActivity extends AppCompatActivity {
             session.setWednesday(false);}
         if( binding.fragmentCreatealarmCheckThu.isChecked()){
             session.setThursday(true);}else{
-            session.setTuesday(false);
+            session.setThursday(false);
         }
         if(binding.fragmentCreatealarmCheckFri.isChecked()){
             session.setFriday(true);}else {
@@ -203,7 +209,7 @@ public class CreateSessionActivity extends AppCompatActivity {
             session.setSunday(false);
         }
         session.setTitle(title);
-        session.schedule(getApplicationContext());
+        session.schedule(getApplicationContext(),session);
         createSessionViewModel.insert(session);
     }
 
@@ -248,6 +254,7 @@ public class CreateSessionActivity extends AppCompatActivity {
 //        createSessionViewModel.update(updatedAlarm);
 //        updatedAlarm.schedule(this);
         Session  updateSession=new Session();
+        updateSession.setSessionId(sec.getSessionId());
         updateSession.setStartHour(startHour);
         updateSession.setStartMinute(startMinute);
         updateSession.setEndHour(endHour);
@@ -270,7 +277,7 @@ public class CreateSessionActivity extends AppCompatActivity {
             updateSession.setWednesday(false);}
         if( binding.fragmentCreatealarmCheckThu.isChecked()){
             updateSession.setThursday(true);}else{
-            updateSession.setTuesday(false);
+            updateSession.setThursday(false);
         }
         if(binding.fragmentCreatealarmCheckFri.isChecked()){
             updateSession.setFriday(true);}else {
@@ -285,7 +292,7 @@ public class CreateSessionActivity extends AppCompatActivity {
             updateSession.setSunday(false);
         }
         updateSession.setTitle(title);
-        updateSession.schedule(this);
+        updateSession.schedule(this,updateSession);
         createSessionViewModel.update(updateSession);
     }
 }

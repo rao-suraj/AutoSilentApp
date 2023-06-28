@@ -10,7 +10,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Session.class}, version = 1, exportSchema = false)
+@Database(entities = {Session.class}, version = 2, exportSchema = false)
 public abstract class SessionDatabase extends RoomDatabase {
     public abstract SessionDao sessionDao();
     private static volatile SessionDatabase INSTANCE;
@@ -25,7 +25,9 @@ public abstract class SessionDatabase extends RoomDatabase {
                             context.getApplicationContext(),
                             SessionDatabase.class,
                             "session_database"
-                    ).build();
+                    )
+                            .fallbackToDestructiveMigration()
+                            .build();
                 }
             }
         }

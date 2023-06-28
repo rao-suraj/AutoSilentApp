@@ -87,10 +87,10 @@ public class TimerFragment extends Fragment implements OnToggleSessionListener {
     @Override
     public void onToggle(Session session) {
         if (session.isStarted()) {
-            session.cancelAlarm(getActivity().getApplicationContext(),session);
+            session.cancelAlarm(getContext(),session);
             sessionListViewModel.update(session);
         } else {
-            session.schedule(getContext());
+            session.schedule(getContext(),session);
             sessionListViewModel.update(session);
         }
     }
