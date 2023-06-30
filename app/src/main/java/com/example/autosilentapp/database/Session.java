@@ -5,7 +5,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -13,9 +12,8 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import com.example.autosilentapp.SessionBroadcastReceiver;
+import com.example.autosilentapp.broadcast_receiver.SessionBroadcastReceiver;
 import com.example.autosilentapp.R;
-import com.example.autosilentapp.adapter.SessionRecyclerViewAdapter;
 import com.example.autosilentapp.util.DayUtil;
 
 import java.io.Serializable;

@@ -20,7 +20,6 @@ import com.example.autosilentapp.adapter.SessionRecyclerViewAdapter;
 import com.example.autosilentapp.database.Session;
 import com.example.autosilentapp.databinding.FragmentTimerBinding;
 import com.example.autosilentapp.util.OnToggleSessionListener;
-import com.example.autosilentapp.viewmodel.CreateSessionViewModel;
 import com.example.autosilentapp.viewmodel.SessionListViewModel;
 
 import java.util.List;
@@ -46,7 +45,6 @@ public class TimerFragment extends Fragment implements OnToggleSessionListener {
         sessionListViewModel.getSessionLiveData().observe(this, new Observer<List<Session>>() {
             @Override
             public void onChanged(List<Session> sessions) {
-                sessionListViewModel = new ViewModelProvider(TimerFragment.this).get(SessionListViewModel.class);
                 sessionListViewModel.getSessionLiveData().observe(TimerFragment.this, new Observer<List<Session>>() {
                     @Override
                     public void onChanged(List<Session> sessions) {
@@ -66,21 +64,6 @@ public class TimerFragment extends Fragment implements OnToggleSessionListener {
         sessionsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         sessionsRecyclerView.setAdapter(sessionRecyclerViewAdapter);
 
-//        Session sec=new Session(22,50,22,55,false,true,false,false,false,false,false,true,false,null);
-//        sec.setStartHour(21);
-//        sec.setEndHour(21);
-//        sec.setStartMinute(29);
-//        sec.setEndMinute(30);
-//        sec.setStarted(false);
-//        sec.setRecurring(true);
-//        sec.setMonday(false);
-//        sec.setTuesday(false);
-//        sec.setWednesday(false);
-//        sec.setThursday(false);
-//        sec.setFriday(false);
-//        sec.setSaturday(true);
-//        sec.setSunday(false);
-//        sec.schedule(getContext());
         return fragmentTimerBinding.getRoot();
     }
 
@@ -104,11 +87,6 @@ public class TimerFragment extends Fragment implements OnToggleSessionListener {
 
     @Override
     public void onItemClick(Session session,View view) {
-//        if (alarm.isStarted())
-//            alarm.cancelAlarm(getContext());
-//        Bundle args = new Bundle();
-//        args.putSerializable(getString(R.string.arg_alarm_obj),alarm);
-//        Navigation.findNavController(view).navigate(R.id.action_alarmsListFragment_to_createAlarmFragment,args);
 
         Bundle bundle = new Bundle();
         bundle.putSerializable(getString(R.string.arg_alarm_obj), session);

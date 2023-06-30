@@ -3,6 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="arg_alarm_obj">AlarmObject</string>
+    <string name="arg_profile_obj">ProfileObject</string>
     <string name="bundle_alarm_obj">BundleAlarmObject</string>
+    <string name="bundle_profile_obj">BundleProfileObject</string>
 
 </resources>

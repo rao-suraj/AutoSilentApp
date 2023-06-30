@@ -4,9 +4,8 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.ViewModel;
 
-import com.example.autosilentapp.SessionRepository;
+import com.example.autosilentapp.repository.SessionRepository;
 import com.example.autosilentapp.database.Session;
 
 public class CreateSessionViewModel extends AndroidViewModel {

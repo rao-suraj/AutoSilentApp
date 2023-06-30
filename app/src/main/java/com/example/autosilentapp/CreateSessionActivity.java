@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -16,6 +15,7 @@ import com.example.autosilentapp.database.Session;
 import com.example.autosilentapp.databinding.ActivityCreateSessionBinding;
 import com.example.autosilentapp.viewmodel.CreateSessionViewModel;
 
+import java.util.Calendar;
 import java.util.Random;
 
 public class CreateSessionActivity extends AppCompatActivity {
@@ -50,6 +50,10 @@ public class CreateSessionActivity extends AppCompatActivity {
         if(sec!=null)
         {
             updateAlarmInfo(sec);
+            startHour = sec.getStartHour();
+            startMinute = sec.getStartMinute();
+            endHour = sec.getEndHour();
+            endMinute = sec.getEndMinute();
         }
 
 
@@ -159,10 +163,14 @@ public class CreateSessionActivity extends AppCompatActivity {
 //              sec.setSunday(false);
 //              sec.schedule(CreateSessionActivity.this);
 //              createSessionViewModel.insert(sec);
-              if(sec==null) {
-                  scheduleSession();
+              if(checkTime()) {
+                  if (sec == null) {
+                      scheduleSession();
+                  } else {
+                      updateSession();
+                  }
               }else{
-                  updateSession();
+                  Toast.makeText(CreateSessionActivity.this,"Start time must be less then end time",Toast.LENGTH_SHORT).show();
               }
           }
       });
@@ -292,7 +300,27 @@ public class CreateSessionActivity extends AppCompatActivity {
             updateSession.setSunday(false);
         }
         updateSession.setTitle(title);
-        updateSession.schedule(this,updateSession);
         createSessionViewModel.update(updateSession);
+    }
+    public boolean checkTime() {
+        Calendar startCalendar = Calendar.getInstance();
+        startCalendar.setTimeInMillis(System.currentTimeMillis());
+        startCalendar.set(Calendar.HOUR_OF_DAY, startHour);
+        startCalendar.set(Calendar.MINUTE, startMinute);
+        startCalendar.set(Calendar.SECOND, 0);
+        startCalendar.set(Calendar.MILLISECOND, 0);
+
+        Calendar endCalendar = Calendar.getInstance();
+        endCalendar.setTimeInMillis(System.currentTimeMillis());
+        endCalendar.set(Calendar.HOUR_OF_DAY, endHour);
+        endCalendar.set(Calendar.MINUTE, endMinute);
+        endCalendar.set(Calendar.SECOND, 0);
+        endCalendar.set(Calendar.MILLISECOND, 0);
+
+        if (startCalendar.getTimeInMillis() >= endCalendar.getTimeInMillis()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

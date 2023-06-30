@@ -1,4 +1,4 @@
-package com.example.autosilentapp;
+package com.example.autosilentapp.repository;
 
 import android.app.Application;
 

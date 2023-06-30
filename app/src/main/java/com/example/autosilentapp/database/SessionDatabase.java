@@ -10,9 +10,10 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Session.class}, version = 2, exportSchema = false)
+@Database(entities = {Session.class, Profile.class}, version = 3, exportSchema = false)
 public abstract class SessionDatabase extends RoomDatabase {
     public abstract SessionDao sessionDao();
+    public abstract ProfileDao profileDao();
     private static volatile SessionDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4 ;
     public static final ExecutorService databaseWriteExecutor= Executors.newFixedThreadPool(NUMBER_OF_THREADS);

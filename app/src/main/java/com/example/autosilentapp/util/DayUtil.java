@@ -3,7 +3,7 @@ package com.example.autosilentapp.util;
 import java.util.Calendar;
 
 public final class DayUtil {
-    public static final String toDay(int day) throws Exception {
+    public static  String toDay(int day) throws Exception {
         switch (day) {
             case Calendar.SUNDAY:
                 return "Sunday";
