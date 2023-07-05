@@ -4,16 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Auto"
+                  android:textSize="27sp"
+                  android:textStyle="bold"
+                  android:textColor="@color/Orange"
+                  android:fontFamily="@font/rubik_medium"/>
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text=" Silent"
+                  android:textSize="25sp"
+                  android:textStyle="bold"
+                  android:textColor="@color/black"
+                  android:fontFamily="@font/rubik_medium"/>
+          </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/frame_layout"/>
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="63dp"
+        android:background="@color/OffWhile" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:layout_gravity="bottom"
         android:id="@+id/bottomAppBar"
         app:fabCradleMargin="10dp"
@@ -24,20 +63,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/bottomNavigationView"
-            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
             app:menu="@menu/bottom_menu"
             android:background="@drawable/transparent_background"
-
             />
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:id="@+id/fab"
-        android:src="@drawable/baseline_add_24"
         app:layout_anchor="@id/bottomAppBar"
-        />
+        android:src="@drawable/baseline_add_24"
+        android:contentDescription="TODO"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

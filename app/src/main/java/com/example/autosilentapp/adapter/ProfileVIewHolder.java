@@ -20,7 +20,7 @@ import com.example.autosilentapp.util.OnToggleSessionListenerProfile;
 
 public class ProfileVIewHolder  extends RecyclerView.ViewHolder{
 
-    private TextView profileStartTime,profileEndTime;
+    private TextView profileStartTime1,profileEndTime1,profileStartTime2,profileEndTIme2;
     private ImageView profileRecurring;
     private TextView profileRecurringDays;
     private TextView profileTitle;
@@ -31,8 +31,10 @@ public class ProfileVIewHolder  extends RecyclerView.ViewHolder{
 
     public ProfileVIewHolder(@NonNull ItemProfileBinding itemProfileBinding) {
         super(itemProfileBinding.getRoot());
-        profileStartTime = itemProfileBinding.itemSessionStartTime;
-        profileEndTime=itemProfileBinding.itemSessionEndTime;
+        profileStartTime1 = itemProfileBinding.startTxt1;
+        profileEndTime1=itemProfileBinding.txtEnd1;
+        profileStartTime2=itemProfileBinding.startText2;
+        profileEndTIme2=itemProfileBinding.textEnd2;
         profileStarted = itemProfileBinding.itemAlarmStarted;
         profileTitle= itemProfileBinding.itemAlarmTitle;
         deleteProfile= itemProfileBinding.itemAlarmRecurringDelete;
@@ -42,11 +44,15 @@ public class ProfileVIewHolder  extends RecyclerView.ViewHolder{
         this.itemView=itemProfileBinding.getRoot();
     }
     public void bind(Profile profile, OnToggleSessionListenerProfile listener) {
-        String startSessionText = String.format("%02d:%02d", profile.getStartHour(), profile.getStartMinute());
-        String endSessionText = String.format("%02d:%02d", profile.getEndHour(), profile.getEndMinute());
+        String startSessionText1 = String.format("%02d", profile.getStartHour());
+        String startSessionText2 = String.format(":%02d", profile.getStartMinute());
+        String endSessionText1 = String.format("%02d", profile.getEndHour());
+        String endSessionText2 = String.format(":%02d", profile.getEndMinute());
 
-        profileStartTime.setText(startSessionText);
-        profileEndTime.setText(endSessionText);
+        profileStartTime1.setText(startSessionText1);
+        profileStartTime2.setText(startSessionText2);
+        profileEndTime1.setText(endSessionText1);
+        profileEndTIme2.setText(endSessionText2);
         profileStarted.setChecked(profile.isStarted());
 
 

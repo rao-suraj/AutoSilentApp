@@ -17,14 +17,16 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AutoSilentApp"
+        android:theme="@style/Theme.MyApp.MySplash"
         tools:targetApi="31" >
         <activity
             android:name=".CreateProfileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AutoSilentApp"/>
         <activity
             android:name=".CreateSessionActivity"
-            android:exported="false" /> <!-- <receiver android:name=".broadcast_receiver.CallStateBroadcastReceiver" -->
+            android:exported="false"
+            android:theme="@style/Theme.AutoSilentApp"/> <!-- <receiver android:name=".broadcast_receiver.CallStateBroadcastReceiver" -->
         <!-- android:exported="true"> -->
         <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.PHONE_STATE" /> -->
@@ -41,7 +43,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:theme="@style/Theme.AutoSilentApp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

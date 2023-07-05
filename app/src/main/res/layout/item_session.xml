@@ -7,7 +7,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="85dp"
         app:cardCornerRadius="6dp"
         app:cardElevation="6dp"
         android:layout_margin="7dp">
@@ -18,26 +18,67 @@
             android:orientation="horizontal"
             android:padding="6dp">
 
-            <TextView
-                android:id="@+id/item_session_start_time"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-thin"
-                android:text="00:00"
-                android:textSize="15sp"
-                android:typeface="serif" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-"/>
-            <TextView
-                android:id="@+id/item_session_end_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-thin"
-                android:text="00:00"
-                android:textSize="15sp"
-                android:typeface="serif" />
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/start_txt1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-thin"
+                        android:text="00"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="21.5sp"
+                        android:typeface="serif" />
+                    <TextView
+                        android:id="@+id/start_text2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-thin"
+                        android:text=":00"
+                        android:textSize="21.5sp"
+                        android:typeface="serif" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="8dp"
+                    android:text="to"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_end1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-thin"
+                        android:text="00"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="21.5sp"
+                        android:typeface="serif"/>
+                    <TextView
+                        android:id="@+id/text_end2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-thin"
+                        android:text=":00"
+                        android:textSize="21.5sp"
+                        android:typeface="serif"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
 
 
             <ImageView
@@ -57,16 +98,18 @@
                     android:id="@+id/item_alarm_recurringDays"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="sans-serif-condensed"
                     tools:text="Repeating"
-                    android:textSize="10sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/item_alarm_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif-condensed-medium"
-                    android:textSize="16sp"
+                    android:textSize="23sp"
                     tools:text="Alarm Title" />
 
             </LinearLayout>
@@ -81,7 +124,7 @@
                 android:textSize="14sp"/>
             <Switch
                 android:id="@+id/item_alarm_started"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginEnd="3dp"/>

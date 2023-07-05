@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+    <Button
+        android:id="@+id/add_session"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD SESSION"
+        android:backgroundTint="@color/Orange"
+        android:padding="5dp"/>
+
+    <Button
+        android:id="@+id/add_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD PROFILE"
+        android:backgroundTint="@color/Orange"
+        android:padding="5dp"/>
+
+
+
+</LinearLayout>
