@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.example.autosilentapp.R;
@@ -28,6 +29,10 @@ public class Profile implements Serializable {
     private boolean started;
     private int mediaVol,ringVol;
 
+    public Profile(){
+        //Empty Constructor
+    }
+    @Ignore
     public Profile(int profileId, String title, int startHour, int startMinute, int endHour, int endMinute, boolean started, int mediaVol, int ringVol) {
         this.profileId = profileId;
         this.title = title;
@@ -112,9 +117,7 @@ public class Profile implements Serializable {
         this.ringVol = ringVol;
     }
 
-    public Profile(){
 
-    }
 
     public void schedule(Context context, Profile profile)
     {
@@ -161,14 +164,14 @@ public class Profile implements Serializable {
             Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
 
             startIntent.setAction(START_PROFILE_STRING);
-            PendingIntent startPendingIntent = PendingIntent.getBroadcast(context, profileId+1005, startIntent, 0);
+            PendingIntent startPendingIntent = PendingIntent.getBroadcast(context, profileId + 1005, startIntent, PendingIntent.FLAG_IMMUTABLE);
             alarmManager.setExact(
                     AlarmManager.RTC_WAKEUP,
                     startCalendar.getTimeInMillis(),
                     startPendingIntent
             );
             endIntent.setAction(END_PROFILE_STRING);
-            PendingIntent endPendingIntent = PendingIntent.getBroadcast(context, profileId-1005, endIntent, 0);
+            PendingIntent endPendingIntent = PendingIntent.getBroadcast(context, profileId - 1005, endIntent, PendingIntent.FLAG_IMMUTABLE);
             alarmManager.setExact(
                     AlarmManager.RTC_WAKEUP,
                     endCalendar.getTimeInMillis(),
@@ -186,14 +189,14 @@ public class Profile implements Serializable {
         bundle.putSerializable(context.getString(R.string.arg_profile_obj),profile);
         startIntent.putExtra(context.getString(R.string.bundle_profile_obj),bundle);
         startIntent.setAction(START_PROFILE_STRING);
-        PendingIntent startPendingIntent = PendingIntent.getBroadcast(context, profile.getProfileId()+1005, startIntent, 0);
+        PendingIntent startPendingIntent = PendingIntent.getBroadcast(context, profile.getProfileId() + 1005, startIntent, PendingIntent.FLAG_IMMUTABLE);
         alarmManager.cancel(startPendingIntent);
 
         Intent endIntent = new Intent(context, SessionBroadcastReceiver.class);
         bundle.putSerializable(context.getString(R.string.arg_profile_obj),this);
         endIntent.putExtra(context.getString(R.string.bundle_profile_obj),bundle);
         endIntent.setAction(END_PROFILE_STRING);
-        PendingIntent endPendingIntent = PendingIntent.getBroadcast(context, profile.getProfileId()-1005, endIntent, 0);
+        PendingIntent endPendingIntent = PendingIntent.getBroadcast(context, profile.getProfileId() - 1005, endIntent, PendingIntent.FLAG_IMMUTABLE);
         alarmManager.cancel(endPendingIntent);
 
         this.started = false;

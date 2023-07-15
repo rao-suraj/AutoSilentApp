@@ -77,5 +77,4 @@
         android:src="@drawable/baseline_add_24"
         android:contentDescription="TODO"/>
 
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

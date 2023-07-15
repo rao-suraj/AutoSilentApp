@@ -1,8 +1,10 @@
 package com.example.autosilentapp;
 import android.app.Dialog;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -37,10 +39,15 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     FragmentManager fragmentManager;
+    NotificationManager notificationManager ;
 
-    int REQUEST_READ_PHONE_STATE=1;
+    int REQUEST_READ_PHONE_STATE=3;
     int REQUEST_DND_CODE=2;
     private static final int REQUEST_MODIFY_AUDIO_SETTINGS = 1;
+
+    private static final int ACCESS_NOTIFICATION_POLICY_REQUEST_CODE = 123;
+
+    private static final int ACCESS_POST_NOTIFICATION_PERMISSION=22;
 
     Dialog dialogAbout,dialogFeedback,dialogAdd;
 
@@ -52,26 +59,33 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        notificationManager = getSystemService(NotificationManager.class);
+
+
+        //Dialog Initialization
         initializeDialog();
 
         addSession=dialogAdd.findViewById(R.id.add_session);
         addProfile=dialogAdd.findViewById(R.id.add_profile);
 
-        //statusbar
+        // Transparent StatusBar
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
-        //toolbar
+        //Toolbar
         Toolbar toolbar=binding.toolBar;
         setSupportActionBar(toolbar);
 
 
+        //check permission
         checkForPermission();
 
+        //fragmentInitialization
         fragmentManager= getSupportFragmentManager();
-
+        //fragmentBackground
         binding.bottomNavigationView.setBackground(null);
 
+        //fragmentSwitching
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.timer:
@@ -128,10 +142,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkForPermission() {
+        askNotificationPermission();
+        checkAccessNotificationPolicyPermission();
         checkCallStatePermission();
         askDNDPermission();
         checkModifyAudioSettingsPermission();
     }
+
+
 
 
     private void replaceFragment(Fragment fragment)
@@ -139,6 +157,14 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout,fragment);
         fragmentTransaction.commit();
+    }
+
+    private void askNotificationPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission is not granted, request it from the user
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, ACCESS_POST_NOTIFICATION_PERMISSION);
+        }
     }
     private void checkCallStatePermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
@@ -165,6 +191,20 @@ public class MainActivity extends AppCompatActivity {
                     REQUEST_MODIFY_AUDIO_SETTINGS);
         }
     }
+
+    public void checkAccessNotificationPolicyPermission() {
+        // Check if ACCESS_NOTIFICATION_POLICY permission is granted
+
+        if (notificationManager.isNotificationPolicyAccessGranted()) {
+            // ACCESS_NOTIFICATION_POLICY permission is granted
+            Toast.makeText(this, "ACCESS_NOTIFICATION_POLICY permission is already granted", Toast.LENGTH_SHORT).show();
+        } else {
+            // ACCESS_NOTIFICATION_POLICY permission is not granted, prompt the user to enable it
+            Intent intent = new Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+            startActivityForResult(intent, ACCESS_NOTIFICATION_POLICY_REQUEST_CODE);
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -190,6 +230,22 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this,"MODIFY_AUDIO_GRANTED",Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this,"MODIFY_AUDIO_NOT_GRANTED",Toast.LENGTH_SHORT).show();
+            }
+        }
+        if(requestCode == ACCESS_NOTIFICATION_POLICY_REQUEST_CODE) {
+            // Check if the user has granted ACCESS_NOTIFICATION_POLICY permission after being prompte
+            if (notificationManager.isNotificationPolicyAccessGranted()) {
+//                Toast.makeText(this, "ACCESS_NOTIFICATION_POLICY permission granted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "ACCESS_NOTIFICATION_POLICY permission not granted", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if(requestCode == ACCESS_POST_NOTIFICATION_PERMISSION) {
+            // Check if the user has granted ACCESS_NOTIFICATION_POLICY permission after being prompte
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this,"NOTIFICATION_GRANTED",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this,"NOTIFICATION_NOT_GRANTED",Toast.LENGTH_SHORT).show();
             }
         }
     }

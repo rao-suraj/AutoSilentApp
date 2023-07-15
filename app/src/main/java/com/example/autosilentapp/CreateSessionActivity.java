@@ -74,16 +74,11 @@ public class CreateSessionActivity extends AppCompatActivity {
                     stMin=30;
                 }
 
-                // Create and show the Time Picker dialog
                 TimePickerDialog timePickerDialog = new TimePickerDialog(
                         CreateSessionActivity.this,
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                                // Handle the selected time
-                                // hourOfDay and minute represent the selected time values
-                                // You can do something with the selected time here
-                                // For example, update a TextView with the selected time
                                 startHour=hourOfDay;
                                 startMinute=minute;
                             }
@@ -115,10 +110,6 @@ public class CreateSessionActivity extends AppCompatActivity {
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                                // Handle the selected time
-                                // hourOfDay and minute represent the selected time values
-                                // You can do something with the selected time here
-                                // For example, update a TextView with the selected time
                                endHour=hourOfDay;
                                endMinute=minute;
                             }
@@ -143,26 +134,7 @@ public class CreateSessionActivity extends AppCompatActivity {
       binding.fragmentCreatealarmScheduleAlarm.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-//               sec=new Session(startHour,startMinute,endHour,endMinute,false,binding.checkbox1.isChecked(),
-//                      binding.checkBox2.isChecked(),binding.checkBox3.isChecked(),binding.checkBox4.isChecked(),
-//                      binding.checkBox5.isChecked(),binding.checkBox6.isChecked(),binding.checkBox7.isChecked(),
-//                      binding.checkBox8.isChecked(),null);
-//              sec=new Session();
-//              sec.setStartHour(21);
-//              sec.setEndHour(21);
-//              sec.setStartMinute(15);
-//              sec.setEndMinute(16);
-//              sec.setStarted(false);
-//              sec.setRecurring(true);
-//              sec.setMonday(false);
-//              sec.setTuesday(false);
-//              sec.setWednesday(false);
-//              sec.setThursday(false);
-//              sec.setFriday(false);
-//              sec.setSaturday(true);
-//              sec.setSunday(false);
-//              sec.schedule(CreateSessionActivity.this);
-//              createSessionViewModel.insert(sec);
+
               if(checkTime()) {
                   if (sec == null) {
                       scheduleSession();
@@ -244,23 +216,7 @@ public class CreateSessionActivity extends AppCompatActivity {
         }
     }
     private void updateSession(){
-//        Session updatedAlarm = new Session(
-//                startHour,
-//                startMinute,
-//                endHour,
-//                endMinute,
-//                sec.isStarted(),
-//                binding.fragmentCreatealarmRecurring.isChecked(),
-//                binding.fragmentCreatealarmCheckMon.isChecked(),
-//                binding.fragmentCreatealarmCheckTue.isChecked(),
-//                binding.fragmentCreatealarmCheckWed.isChecked(),
-//                binding.fragmentCreatealarmCheckThu.isChecked(),
-//                binding.fragmentCreatealarmCheckFri.isChecked(),
-//                binding.fragmentCreatealarmCheckSat.isChecked(),
-//                binding.fragmentCreatealarmCheckSun.isChecked(),sec.getTitle()
-//        );
-//        createSessionViewModel.update(updatedAlarm);
-//        updatedAlarm.schedule(this);
+
         Session  updateSession=new Session();
         updateSession.setSessionId(sec.getSessionId());
         updateSession.setStartHour(startHour);

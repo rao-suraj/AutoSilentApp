@@ -213,51 +213,34 @@ public class Session implements Serializable {
                 e.printStackTrace();
             }
             String sid=String.valueOf(session.getSessionId());
-//            if(session!=null) {
-//            Toast.makeText(context,sid,Toast.LENGTH_SHORT).show();
-//            }else {
-//                Toast.makeText(context,sid,Toast.LENGTH_SHORT).show();
-//            }
             Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
             startIntent.setAction("com.example.autosilentapp.START_SILENT_MODE");
-            PendingIntent startPendingIntent = PendingIntent.getBroadcast(context, sessionId+1005, startIntent, 0);
+            PendingIntent startPendingIntent = PendingIntent.getBroadcast(context, sessionId + 1005, startIntent, PendingIntent.FLAG_IMMUTABLE);
             alarmManager.setExact(
                     AlarmManager.RTC_WAKEUP,
                     startCalendar.getTimeInMillis(),
                     startPendingIntent
             );
             endIntent.setAction("com.example.autosilentapp.END_SILENT_MODE");
-            PendingIntent endPendingIntent = PendingIntent.getBroadcast(context, sessionId-1005, endIntent, 0);
+            PendingIntent endPendingIntent = PendingIntent.getBroadcast(context, sessionId - 1005, endIntent, PendingIntent.FLAG_IMMUTABLE);
             alarmManager.setExact(
                     AlarmManager.RTC_WAKEUP,
                     endCalendar.getTimeInMillis(),
                     endPendingIntent
             );
-//            Handler handler = new Handler();
-
-//            Runnable runnable = new Runnable() {
-//                @Override
-//                public void run() {
-//                    // Update the started field in the database
-//                    started=false;
-//                    Toast.makeText(context,"This",Toast.LENGTH_SHORT).show();
-//                }
-//            };
-//            long delay = endCalendar.getTimeInMillis();
-//            handler.postDelayed(runnable, delay);
 
         }else{
             String toastText = String.format("Recurring Session scheduled for %s from %02d:%02d to %02d:%02d",  getRecurringDaysText(), startHour, startMinute,endHour,endMinute);
             Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
 
             startIntent.setAction("com.example.autosilentapp.START_SILENT_MODE");
-            PendingIntent startPendingIntent = PendingIntent.getBroadcast(context, sessionId+1005, startIntent, 0);
+            PendingIntent startPendingIntent = PendingIntent.getBroadcast(context, sessionId + 1005, startIntent, PendingIntent.FLAG_IMMUTABLE);
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
                     startCalendar.getTimeInMillis(),
                     AlarmManager.INTERVAL_DAY,
                     startPendingIntent);
             endIntent.setAction("com.example.autosilentapp.END_SILENT_MODE");
-            PendingIntent endPendingIntent = PendingIntent.getBroadcast(context, sessionId-1005, endIntent, 0);
+            PendingIntent endPendingIntent = PendingIntent.getBroadcast(context, sessionId - 1005, endIntent, PendingIntent.FLAG_IMMUTABLE);
             alarmManager.setRepeating( AlarmManager.RTC_WAKEUP,
                     endCalendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY, endPendingIntent);
 
@@ -272,14 +255,14 @@ public class Session implements Serializable {
         bundle.putSerializable(context.getString(R.string.arg_alarm_obj),this);
         startIntent.putExtra(context.getString(R.string.bundle_alarm_obj),bundle);
         startIntent.setAction("com.example.autosilentapp.START_SILENT_MODE");
-        PendingIntent startPendingIntent = PendingIntent.getBroadcast(context, session.getSessionId()+1005, startIntent, 0);
+        PendingIntent startPendingIntent = PendingIntent.getBroadcast(context, session.getSessionId() + 1005, startIntent, PendingIntent.FLAG_IMMUTABLE);
         alarmManager.cancel(startPendingIntent);
 
         Intent endIntent = new Intent(context, SessionBroadcastReceiver.class);
         bundle.putSerializable(context.getString(R.string.arg_alarm_obj),this);
         endIntent.putExtra(context.getString(R.string.bundle_alarm_obj),bundle);
         endIntent.setAction("com.example.autosilentapp.END_SILENT_MODE");
-        PendingIntent endPendingIntent = PendingIntent.getBroadcast(context, session.getSessionId()-1005, endIntent, 0);
+        PendingIntent endPendingIntent = PendingIntent.getBroadcast(context, session.getSessionId() - 1005, endIntent, PendingIntent.FLAG_IMMUTABLE);
         alarmManager.cancel(endPendingIntent);
 
         this.started = false;
@@ -317,6 +300,5 @@ public class Session implements Serializable {
 
         return days;
     }
-
 
 }

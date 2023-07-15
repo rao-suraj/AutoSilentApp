@@ -204,7 +204,7 @@ public class SessionBroadcastReceiver extends BroadcastReceiver {
                 .setSmallIcon(R.drawable.ic_looks_one_black)
                 .setContentTitle(title)
                 .setContentText(message)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true)
                 .addAction(android.R.drawable.ic_menu_close_clear_cancel, "Dismiss", dismissPendingIntent);
 
