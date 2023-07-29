@@ -25,4 +25,3 @@
             </td>
         </tr>
     </table>
-"https://github.com/rao-suraj/AutoSilentApp/assets/91473933/e6acc861-34d9-4c93-84da-b3198ec33d99
