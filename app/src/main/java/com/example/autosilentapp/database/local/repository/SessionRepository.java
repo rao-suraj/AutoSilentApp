@@ -1,12 +1,12 @@
-package com.example.autosilentapp.repository;
+package com.example.autosilentapp.database.local.repository;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.autosilentapp.database.Session;
-import com.example.autosilentapp.database.SessionDao;
-import com.example.autosilentapp.database.SessionDatabase;
+import com.example.autosilentapp.database.local.database.Database;
+import com.example.autosilentapp.database.local.model.Session;
+import com.example.autosilentapp.database.local.database.SessionDao;
 
 import java.util.List;
 
@@ -15,18 +15,18 @@ public class SessionRepository {
     private final LiveData<List<Session>> sessionLiveData;
 
     public SessionRepository(Application application) {
-        SessionDatabase db = SessionDatabase.getDatabase(application);
+        Database db = Database.getDatabase(application);
         sessionDao = db.sessionDao();
         sessionLiveData = sessionDao.getAlarms();
     }
     public void insert(Session session) {
-        SessionDatabase.databaseWriteExecutor.execute(() -> {
+        Database.databaseWriteExecutor.execute(() -> {
             sessionDao.insert(session);
         });
     }
 
     public void update(Session session) {
-        SessionDatabase.databaseWriteExecutor.execute(() -> {
+        Database.databaseWriteExecutor.execute(() -> {
             sessionDao.update(session);
         });
     }
@@ -36,7 +36,7 @@ public class SessionRepository {
     }
 
     public void delete(int sessionId){
-        SessionDatabase.databaseWriteExecutor.execute(() -> {
+        Database.databaseWriteExecutor.execute(() -> {
             sessionDao.delete(sessionId);
         });
     }

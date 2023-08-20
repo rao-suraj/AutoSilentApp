@@ -1,4 +1,4 @@
-package com.example.autosilentapp.fragments;
+package com.example.autosilentapp.presentation.list_session;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,19 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.autosilentapp.CreateSessionActivity;
+import com.example.autosilentapp.presentation.create_session.CreateSessionActivity;
 import com.example.autosilentapp.R;
-import com.example.autosilentapp.adapter.SessionRecyclerViewAdapter;
-import com.example.autosilentapp.database.Session;
+import com.example.autosilentapp.presentation.list_session.recyeler_view.SessionRecyclerViewAdapter;
+import com.example.autosilentapp.database.local.model.Session;
 import com.example.autosilentapp.databinding.FragmentTimerBinding;
 import com.example.autosilentapp.util.OnToggleSessionListener;
-import com.example.autosilentapp.viewmodel.SessionListViewModel;
 
 import java.util.List;
 
-public class TimerFragment extends Fragment implements OnToggleSessionListener {
+public class SessionFragment extends Fragment implements OnToggleSessionListener {
     Session session;
     private SessionRecyclerViewAdapter sessionRecyclerViewAdapter;
     private SessionListViewModel sessionListViewModel;
@@ -32,7 +30,7 @@ public class TimerFragment extends Fragment implements OnToggleSessionListener {
     private FragmentTimerBinding fragmentTimerBinding;
     private List<Session> sec;
 
-    public TimerFragment() {
+    public SessionFragment() {
         // Required empty public constructor
     }
 
@@ -45,7 +43,7 @@ public class TimerFragment extends Fragment implements OnToggleSessionListener {
         sessionListViewModel.getSessionLiveData().observe(this, new Observer<List<Session>>() {
             @Override
             public void onChanged(List<Session> sessions) {
-                sessionListViewModel.getSessionLiveData().observe(TimerFragment.this, new Observer<List<Session>>() {
+                sessionListViewModel.getSessionLiveData().observe(SessionFragment.this, new Observer<List<Session>>() {
                     @Override
                     public void onChanged(List<Session> sessions) {
                         if (sessions != null) {
@@ -91,7 +89,7 @@ public class TimerFragment extends Fragment implements OnToggleSessionListener {
         Bundle bundle = new Bundle();
         bundle.putSerializable(getString(R.string.arg_alarm_obj), session);
 
-        TimerFragment timerFragment = new TimerFragment();
+        SessionFragment timerFragment = new SessionFragment();
         timerFragment.setArguments(bundle);
 
         Intent intent = new Intent(getActivity(), CreateSessionActivity.class);

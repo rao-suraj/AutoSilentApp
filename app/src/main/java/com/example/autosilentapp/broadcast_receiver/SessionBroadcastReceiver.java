@@ -12,10 +12,10 @@ import android.widget.Toast;
 import androidx.core.app.NotificationCompat;
 
 import com.example.autosilentapp.R;
-import com.example.autosilentapp.database.Profile;
-import com.example.autosilentapp.database.Session;
-import com.example.autosilentapp.database.SessionDao;
-import com.example.autosilentapp.database.SessionDatabase;
+import com.example.autosilentapp.database.local.database.Database;
+import com.example.autosilentapp.database.local.model.Profile;
+import com.example.autosilentapp.database.local.model.Session;
+import com.example.autosilentapp.database.local.database.SessionDao;
 
 import java.util.Calendar;
 
@@ -121,10 +121,10 @@ public class SessionBroadcastReceiver extends BroadcastReceiver {
     }
 
     private void setStartOff(Session sec, Context context) {
-        SessionDatabase db= SessionDatabase.getDatabase(context);
+        Database db= Database.getDatabase(context);
         SessionDao dao=db.sessionDao();
         sec.setStarted(false);
-        SessionDatabase.databaseWriteExecutor.execute(() -> {
+        Database.databaseWriteExecutor.execute(() -> {
             dao.update(sec);
         });
     }

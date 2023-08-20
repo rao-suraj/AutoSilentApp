@@ -1,4 +1,4 @@
-package com.example.autosilentapp.adapter;
+package com.example.autosilentapp.presentation.list_session.recyeler_view;
 
 import android.view.View;
 import android.widget.CompoundButton;
@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.autosilentapp.R;
-import com.example.autosilentapp.database.Session;
+import com.example.autosilentapp.database.local.model.Session;
 import com.example.autosilentapp.databinding.ItemSessionBinding;
 import com.example.autosilentapp.util.DayUtil;
 import com.example.autosilentapp.util.OnToggleSessionListener;

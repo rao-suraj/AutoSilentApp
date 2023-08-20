@@ -1,4 +1,4 @@
-package com.example.autosilentapp.viewmodel;
+package com.example.autosilentapp.presentation.list_session;
 
 import android.app.Application;
 
@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.autosilentapp.repository.SessionRepository;
-import com.example.autosilentapp.database.Session;
+import com.example.autosilentapp.database.local.repository.SessionRepository;
+import com.example.autosilentapp.database.local.model.Session;
 
 import java.util.List;
 

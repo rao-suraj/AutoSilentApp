@@ -1,4 +1,4 @@
-package com.example.autosilentapp.adapter;
+package com.example.autosilentapp.presentation.list_profile.recycler_view;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.autosilentapp.database.Profile;
+import com.example.autosilentapp.database.local.model.Profile;
 import com.example.autosilentapp.databinding.ItemProfileBinding;
 
 import com.example.autosilentapp.util.OnToggleSessionListenerProfile;

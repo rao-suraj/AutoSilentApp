@@ -2,7 +2,7 @@ package com.example.autosilentapp.util;
 
 import android.view.View;
 
-import com.example.autosilentapp.database.Session;
+import com.example.autosilentapp.database.local.model.Session;
 
 public interface OnToggleSessionListener {
     void onToggle(Session session);

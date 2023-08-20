@@ -1,4 +1,4 @@
-package com.example.autosilentapp;
+package com.example.autosilentapp.presentation.create_session;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -10,10 +10,10 @@ import android.widget.CompoundButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.autosilentapp.adapter.SessionRecyclerViewAdapter;
-import com.example.autosilentapp.database.Session;
+import com.example.autosilentapp.R;
 import com.example.autosilentapp.databinding.ActivityCreateSessionBinding;
-import com.example.autosilentapp.viewmodel.CreateSessionViewModel;
+import com.example.autosilentapp.presentation.list_session.recyeler_view.SessionRecyclerViewAdapter;
+import com.example.autosilentapp.database.local.model.Session;
 
 import java.util.Calendar;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package com.example.autosilentapp.database;
+package com.example.autosilentapp.database.local.model;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;

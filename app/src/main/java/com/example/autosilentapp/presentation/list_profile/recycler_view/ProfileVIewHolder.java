@@ -1,4 +1,4 @@
-package com.example.autosilentapp.adapter;
+package com.example.autosilentapp.presentation.list_profile.recycler_view;
 
 import android.view.View;
 import android.widget.CompoundButton;
@@ -11,11 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.autosilentapp.R;
-import com.example.autosilentapp.database.Profile;
-import com.example.autosilentapp.database.Session;
+import com.example.autosilentapp.database.local.model.Profile;
 import com.example.autosilentapp.databinding.ItemProfileBinding;
 import com.example.autosilentapp.util.DayUtil;
-import com.example.autosilentapp.util.OnToggleSessionListener;
 import com.example.autosilentapp.util.OnToggleSessionListenerProfile;
 
 public class ProfileVIewHolder  extends RecyclerView.ViewHolder{

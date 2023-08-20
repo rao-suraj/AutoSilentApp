@@ -17,14 +17,14 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApp.MySplash"
+        android:theme="@style/Theme.AutoSilentApp"
         tools:targetApi="31" >
         <activity
-            android:name=".CreateProfileActivity"
+            android:name=".presentation.create_profile.CreateProfileActivity"
             android:exported="false"
             android:theme="@style/Theme.AutoSilentApp"/>
         <activity
-            android:name=".CreateSessionActivity"
+            android:name=".presentation.create_session.CreateSessionActivity"
             android:exported="false"
             android:theme="@style/Theme.AutoSilentApp"/> <!-- <receiver android:name=".broadcast_receiver.CallStateBroadcastReceiver" -->
         <!-- android:exported="true"> -->
@@ -42,7 +42,7 @@
         </receiver>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AutoSilentApp">
             <intent-filter>

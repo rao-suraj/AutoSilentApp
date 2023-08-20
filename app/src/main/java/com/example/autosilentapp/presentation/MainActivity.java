@@ -1,4 +1,4 @@
-package com.example.autosilentapp;
+package com.example.autosilentapp.presentation;
 import android.app.Dialog;
 import android.app.NotificationManager;
 import android.content.Intent;
@@ -27,13 +27,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.autosilentapp.database.Profile;
+import com.example.autosilentapp.R;
 import com.example.autosilentapp.databinding.ActivityMainBinding;
-import com.example.autosilentapp.fragments.ProfileFragment;
-import com.example.autosilentapp.fragments.TimerFragment;
-import com.example.autosilentapp.repository.ProfileRepository;
-
-import java.util.Objects;
+import com.example.autosilentapp.presentation.list_profile.ProfileFragment;
+import com.example.autosilentapp.presentation.list_session.SessionFragment;
+import com.example.autosilentapp.presentation.create_profile.CreateProfileActivity;
+import com.example.autosilentapp.presentation.create_session.CreateSessionActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -89,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.timer:
-                    replaceFragment(new TimerFragment());
+                    replaceFragment(new SessionFragment());
                     break;
                 case R.id.profile:
                     replaceFragment(new ProfileFragment());
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
-        replaceFragment(new TimerFragment());
+        replaceFragment(new SessionFragment());
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         addSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,CreateSessionActivity.class);
+                Intent intent=new Intent(MainActivity.this, CreateSessionActivity.class);
                 startActivity(intent);
             }
         });
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         addProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,CreateProfileActivity.class);
+                Intent intent=new Intent(MainActivity.this, CreateProfileActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,14 +1,12 @@
-package com.example.autosilentapp.repository;
+package com.example.autosilentapp.database.local.repository;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.autosilentapp.database.Profile;
-import com.example.autosilentapp.database.ProfileDao;
-import com.example.autosilentapp.database.Session;
-import com.example.autosilentapp.database.SessionDao;
-import com.example.autosilentapp.database.SessionDatabase;
+import com.example.autosilentapp.database.local.database.Database;
+import com.example.autosilentapp.database.local.model.Profile;
+import com.example.autosilentapp.database.local.database.ProfileDao;
 
 import java.util.List;
 
@@ -18,18 +16,18 @@ public class ProfileRepository {
     private final LiveData<List<Profile>> profilesLiveData;
 
     public ProfileRepository(Application application) {
-        SessionDatabase db = SessionDatabase.getDatabase(application);
+        Database db = Database.getDatabase(application);
         profileDao = db.profileDao();
         profilesLiveData = profileDao.getAllProfiles();
     }
     public void insert(Profile profile) {
-        SessionDatabase.databaseWriteExecutor.execute(() -> {
+        Database.databaseWriteExecutor.execute(() -> {
             profileDao.insert(profile);
         });
     }
 
     public void update(Profile profile) {
-        SessionDatabase.databaseWriteExecutor.execute(() -> {
+        Database.databaseWriteExecutor.execute(() -> {
             profileDao.update(profile);
         });
     }
@@ -39,7 +37,7 @@ public class ProfileRepository {
     }
 
     public void delete(int profileId){
-        SessionDatabase.databaseWriteExecutor.execute(() -> {
+        Database.databaseWriteExecutor.execute(() -> {
           profileDao.delete(profileId);
         });
     }

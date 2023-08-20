@@ -62,8 +62,8 @@
                 android:layout_height="wrap_content">
                 <ToggleButton
                     android:id="@+id/fragment_createalarm_checkMon"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:textOff="Mon"
                     android:textOn="Mon"
                     android:layout_margin="3dp"
@@ -82,8 +82,8 @@
 
                 <ToggleButton
                     android:id="@+id/fragment_createalarm_checkWed"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:textOff="Wed"
                     android:textOn="Wed"
                     android:layout_margin="3dp"
@@ -92,8 +92,8 @@
 
                 <ToggleButton
                     android:id="@+id/fragment_createalarm_checkThu"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:textOff="Thu"
                     android:textOn="Thu"
                     android:layout_margin="3dp"
@@ -102,8 +102,8 @@
 
                 <ToggleButton
                     android:id="@+id/fragment_createalarm_checkFri"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:textOff="Fri"
                     android:textOn="Fri"
                     android:layout_margin="3dp"
@@ -112,18 +112,18 @@
 
                 <ToggleButton
                     android:id="@+id/fragment_createalarm_checkSat"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:textOff="Sat"
                     android:textOn="Sat"
-                    android:layout_margin="3dp"
+                    android:layout_margin="@dimen/_3sdp"
                     style="@style/toggleButton"
                     android:background="@drawable/toggle_bg"/>
 
                 <ToggleButton
                     android:id="@+id/fragment_createalarm_checkSun"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:textOff="Sun"
                     android:textOn="Sun"
                     android:layout_margin="3dp"
@@ -152,7 +152,7 @@
                     android:text="Alarm Sound"
                     android:textSize="21sp"
                     android:textColor="@color/textColor"
-                    android:layout_margin="6dp"
+                    android:layout_margin="@dimen/_4sdp"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     tools:layout_editor_absoluteX="0dp"
@@ -165,7 +165,7 @@
                     android:text="Alarm Sound"
                     android:textSize="13sp"
                     android:textColor="@color/textColor"
-                    android:layout_margin="6dp"
+                    android:layout_margin="@dimen/_4sdp"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     tools:layout_editor_absoluteX="0dp"
@@ -175,9 +175,9 @@
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="@dimen/_50sdp"
             android:id="@+id/fragment_createalarm_card_vibrate"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="@dimen/_18sdp"
             app:cardCornerRadius="6dp"
             app:cardElevation="6dp"
             app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_card_sound"
@@ -194,7 +194,7 @@
                     android:text="Vibrate"
                     android:textSize="21sp"
                     android:textColor="@color/textColor"
-                    android:layout_margin="6dp"
+                    android:layout_margin="@dimen/_6sdp"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     tools:layout_editor_absoluteX="0dp"
@@ -206,7 +206,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="3dp"
+                    android:layout_marginEnd="@dimen/_3sdp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"/>
@@ -218,8 +218,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="27dp"
-            android:layout_marginBottom="3dp"
+            android:layout_marginTop="@dimen/_27sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
             android:background="@drawable/shape_oval_filled"
             android:fontFamily="monospace"
             android:text="Schedule Alarm"

@@ -1,4 +1,4 @@
-package com.example.autosilentapp.adapter;
+package com.example.autosilentapp.presentation.list_session.recyeler_view;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,8 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.autosilentapp.R;
-import com.example.autosilentapp.database.Session;
+import com.example.autosilentapp.database.local.model.Session;
 import com.example.autosilentapp.databinding.ItemSessionBinding;
 import com.example.autosilentapp.util.OnToggleSessionListener;
 

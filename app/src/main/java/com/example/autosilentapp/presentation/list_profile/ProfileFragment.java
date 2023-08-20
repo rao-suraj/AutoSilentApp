@@ -1,4 +1,4 @@
-package com.example.autosilentapp.fragments;
+package com.example.autosilentapp.presentation.list_profile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,21 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.autosilentapp.CreateProfileActivity;
-import com.example.autosilentapp.CreateSessionActivity;
+import com.example.autosilentapp.presentation.list_session.SessionFragment;
+import com.example.autosilentapp.presentation.create_profile.CreateProfileActivity;
 import com.example.autosilentapp.R;
-import com.example.autosilentapp.adapter.ProfileRecycleViewAdapter;
-import com.example.autosilentapp.adapter.SessionRecyclerViewAdapter;
-import com.example.autosilentapp.database.Profile;
-import com.example.autosilentapp.database.Session;
+import com.example.autosilentapp.presentation.list_profile.recycler_view.ProfileRecycleViewAdapter;
+import com.example.autosilentapp.database.local.model.Profile;
 import com.example.autosilentapp.databinding.FragmentProfileBinding;
-import com.example.autosilentapp.databinding.FragmentTimerBinding;
-import com.example.autosilentapp.repository.ProfileRepository;
 import com.example.autosilentapp.util.OnToggleSessionListenerProfile;
-import com.example.autosilentapp.viewmodel.ProfileListViewModel;
-import com.example.autosilentapp.viewmodel.SessionListViewModel;
 
 import java.util.List;
 
@@ -91,7 +84,7 @@ public class ProfileFragment extends Fragment implements OnToggleSessionListener
         Bundle bundle = new Bundle();
         bundle.putSerializable(getString(R.string.arg_profile_obj), profile);
 
-        TimerFragment timerFragment = new TimerFragment();
+        SessionFragment timerFragment = new SessionFragment();
         timerFragment.setArguments(bundle);
 
         Intent intent = new Intent(getActivity(), CreateProfileActivity.class);

@@ -3,17 +3,17 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingTop="15dp"
-    android:paddingBottom="15dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:paddingTop="@dimen/_15sdp"
+    android:paddingBottom="@dimen/_15sdp"
+    android:paddingLeft="@dimen/_10sdp"
+    android:paddingRight="@dimen/_10sdp">
     <Button
         android:id="@+id/add_session"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD SESSION"
         android:backgroundTint="@color/Orange"
-        android:padding="5dp"/>
+        android:padding="@dimen/_5sdp"/>
 
     <Button
         android:id="@+id/add_profile"
@@ -21,8 +21,5 @@
         android:layout_height="wrap_content"
         android:text="ADD PROFILE"
         android:backgroundTint="@color/Orange"
-        android:padding="5dp"/>
-
-
-
+        android:padding="@dimen/_5sdp"/>
 </LinearLayout>
